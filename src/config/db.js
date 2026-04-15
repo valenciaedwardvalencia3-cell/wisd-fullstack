@@ -1,0 +1,17 @@
+// ================= CONEXIÓN A MONGODB =================
+
+const mongoose = require("mongoose");
+
+// Función para conectar la base de datos
+const conectarDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+
+    console.log("✅ MongoDB conectado correctamente");
+  } catch (error) {
+    console.log("❌ Error en MongoDB:", error);
+    process.exit(1);
+  }
+};
+
+module.exports = conectarDB;
